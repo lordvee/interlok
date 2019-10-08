@@ -1,0 +1,102 @@
+<adapter>
+  <unique-id>MyInterlokInstance</unique-id>
+  <start-up-event-imp>com.adaptris.core.event.StandardAdapterStartUpEvent</start-up-event-imp>
+  <heartbeat-event-imp>com.adaptris.core.HeartbeatEvent</heartbeat-event-imp>
+  <shared-components>
+    <connections/>
+    <services/>
+  </shared-components>
+  <event-handler class="default-event-handler">
+    <unique-id>DefaultEventHandler</unique-id>
+    <connection class="null-connection">
+      <unique-id>big-albattani</unique-id>
+    </connection>
+    <producer class="null-message-producer">
+      <unique-id>backstabbing-bardeen</unique-id>
+    </producer>
+  </event-handler>
+  <heartbeat-event-interval>
+    <unit>MINUTES</unit>
+    <interval>60</interval>
+  </heartbeat-event-interval>
+  <message-error-handler class="null-processing-exception-handler">
+    <unique-id>elastic-euler</unique-id>
+  </message-error-handler>
+  <failed-message-retrier class="no-retries">
+    <unique-id>compassionate-meninsky</unique-id>
+  </failed-message-retrier>
+  <channel-list>
+    <channel>
+      <consume-connection class="null-connection">
+        <unique-id>loving-bohr</unique-id>
+      </consume-connection>
+      <produce-connection class="null-connection">
+        <unique-id>silly-williams</unique-id>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="fs-consumer">
+            <message-factory class="file-backed-message-factory"/>
+            <unique-id>serene-babbage</unique-id>
+            <destination class="configured-consume-destination">
+              <configured-thread-name>insystem</configured-thread-name>
+              <destination>/home/valerio/messages/out</destination>
+            </destination>
+            <poller class="fixed-interval-poller">
+              <poll-interval>
+                <unit>SECONDS</unit>
+                <interval>20</interval>
+              </poll-interval>
+            </poller>
+            <create-dirs>true</create-dirs>
+            <file-sorter class="fs-sort-none"/>
+            <wip-suffix>.wip</wip-suffix>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>focused-haibt</unique-id>
+            <services>
+              <log-message-service>
+                <unique-id>reverent-heisenberg</unique-id>
+                <log-level>INFO</log-level>
+                <log-prefix>valerio</log-prefix>
+                <logging-format class="message-logging-with-payload"/>
+              </log-message-service>
+            </services>
+          </service-collection>
+          <producer class="fs-producer">
+            <message-factory class="file-backed-message-factory"/>
+            <unique-id>hungry-ritchie</unique-id>
+            <destination class="configured-destination">
+              <destination>/home/valerio/messages/in</destination>
+            </destination>
+            <fs-worker class="fs-nio-worker"/>
+            <filename-creator class="metadata-file-name-creator">
+              <metadata-key>originalname</metadata-key>
+              <default-name>MetadataFileNameCreator_default</default-name>
+            </filename-creator>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>naughty-poincare</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>naughty-poincare-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>naughty-poincare-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+          <message-logger class="message-logging-with-payload"/>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>clever-euler</unique-id>
+      <auto-start>true</auto-start>
+    </channel>
+  </channel-list>
+  <message-error-digester class="standard-message-error-digester">
+    <unique-id>ErrorDigest</unique-id>
+    <digest-max-size>100</digest-max-size>
+  </message-error-digester>
+</adapter>
